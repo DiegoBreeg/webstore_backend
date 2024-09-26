@@ -14,5 +14,17 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  app:
+    build:
+      context: .  # Caminho onde está o Dockerfile
+      dockerfile: Dockerfile  # Nome do Dockerfile (se não for o padrão)
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/helena_paixao_backend  # Para desenvolvimento
+    environment:
+      NODE_ENV: production  # Adicione outras variáveis de ambiente conforme necessário
+    command: npm run serve
+
 volumes:
   db_data:
