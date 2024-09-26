@@ -17,7 +17,7 @@ services:
   app:
     image: diegobreeg/helena_paixao_backend
     ports:
-      - "3030:3030"
+      - "${PORT}:${PORT}"
     volumes:
       - .:/usr/src/helena_paixao_backend  
     environment:
