@@ -19,7 +19,7 @@ services:
       context: .  # Caminho onde está o Dockerfile
       dockerfile: Dockerfile  # Nome do Dockerfile (se não for o padrão)
     ports:
-      - "3000:3000"
+      - "3030:3030"
     volumes:
       - .:/usr/src/helena_paixao_backend  # Para desenvolvimento
     environment:
