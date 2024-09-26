@@ -3,10 +3,11 @@ import dotenv from 'dotenv'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+dotenv.config();
+
+const port = process.env.PORT
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-dotenv.config();
 
 const app = express();
 
@@ -20,5 +21,5 @@ app.get('*', (_, res: Response) => {
 
 app.listen(process.env.PORT, () =>
 {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`)
+    console.log(`Server is running on http://localhost:${port}`)
 })
