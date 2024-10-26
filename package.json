@@ -1,7 +1,7 @@
 {
-  "name": "helena_paixao_backend",
+  "name": "webstore_backend",
   "version": "1.0.0",
-  "description": "API for helena_paixao sales",
+  "description": "API for webstore_backend sales",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
