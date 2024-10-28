@@ -19,10 +19,9 @@ if [ -f "$ENTITY_FILE_PATH" ]; then
     echo "Entidade $ENTITY_FILE_PATH já existe. Nenhuma ação foi realizada."
 else
     cat <<EOL > "$ENTITY_FILE_PATH"
-
 export class ${ENTITY_NAME}
 {
-    
+    constructor(){}
 }
 EOL
 fi
@@ -36,7 +35,6 @@ if [ -f "REPOSITORY_FILE_PATH" ]; then
     echo "Repository já existe. Nanhuma ação foi realizada."
 else
     cat <<EOL > "$REPOSITORY_FILE_PATH"
-
 import { $ENTITY_NAME } from "../entities/${ENTITY_NAME}"
 
 export interface ${ENTITY_NAME}Repository

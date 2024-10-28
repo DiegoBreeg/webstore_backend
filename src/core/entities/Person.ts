@@ -1,4 +1,3 @@
-
 export class Person {
     private _id: string;
     private _name: string;
