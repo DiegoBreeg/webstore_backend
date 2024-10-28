@@ -20,11 +20,10 @@ if [ -f "$ENTITY_FILE_PATH" ]; then
 else
     cat <<EOL > "$ENTITY_FILE_PATH"
 
-class $ENTITY_NAME
+export class ${ENTITY_NAME}
 {
-
+    
 }
-
 EOL
 fi
 
@@ -38,11 +37,16 @@ if [ -f "REPOSITORY_FILE_PATH" ]; then
 else
     cat <<EOL > "$REPOSITORY_FILE_PATH"
 
-interface ${ENTITY_NAME}Repository
+import { $ENTITY_NAME } from "../entities/${ENTITY_NAME}"
+
+export interface ${ENTITY_NAME}Repository
 {
-
+    save(entity: ${ENTITY_NAME}): Promise<${ENTITY_NAME}>
+    findById(id: string): Promise<${ENTITY_NAME}> | null
+    findAll(): Promise<${ENTITY_NAME}[]>
+    update(entity: ${ENTITY_NAME}): Promise<void>
+    deleteById(id: string): Promise<void>
 }
-
 EOL
 fi
 

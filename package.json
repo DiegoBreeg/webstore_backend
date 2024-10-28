@@ -8,7 +8,8 @@
     "build:ts": "tsc",
     "build": "npm run build:ts",
     "serve": "node dist/index.js",
-    "reinstall": "rm -rf node_modules package-lock.json && npm install"
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "create-entity": "bash toolbox/create-entity.sh"
   },
   "author": "diegobreeg",
   "license": "ISC",
