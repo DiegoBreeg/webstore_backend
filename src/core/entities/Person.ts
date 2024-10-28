@@ -1,5 +1,5 @@
-export class Person {
-    private _id: string;
+export class Person {    
+    readonly _id: string;
     private _name: string;
     private _birthDay: Date;
 
@@ -9,9 +9,7 @@ export class Person {
         birthDay: Date
     ) {
         this._id = id;
-        this._name = name
-            .replaceAll(/[^a-zA-Z\u00C0-\u00FF ]/ig, '')
-            .toLocaleUpperCase();
+        this._name = this.sanitizeName(name)
         this._birthDay = birthDay;
     }
 
@@ -44,9 +42,7 @@ export class Person {
      * @param {string} value
      */
     public set name(value: string) {
-        this._name = value
-            .replaceAll(/[^a-zA-Z\u00C0-\u00FF ]/ig, '')
-            .toLocaleUpperCase();
+        this._name = this.sanitizeName(value)
     }
 
     /**
@@ -56,9 +52,13 @@ export class Person {
     public set birthDay(value: Date) {
         this._birthDay = value;
     }
+
+    private sanitizeName(name: string) {
+        return name
+                .replaceAll(/[^a-zA-Z\u00C0-\u00FF ]/ig, '')
+                .toLocaleUpperCase();
+    }
 }
 
-const person = new Person('1', 'diego', new Date('10-06-1995'))
-console.log(person.name)
-person.name = 'maria josé da conceição'
+const person = new Person('1', 'mar13ia jos!456é da conc;.,e=-ição', new Date('10-06-1995'))
 console.log(person)
