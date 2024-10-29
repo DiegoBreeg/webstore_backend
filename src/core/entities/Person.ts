@@ -1,14 +1,17 @@
 export class Person {    
-    readonly _id: string;
+    private readonly _id: string;
+    private readonly _userId: string;
     private _name: string;
     private _birthDay: Date;
 
     constructor(
         id: string,
+        userId: string,
         name: string,
         birthDay: Date
     ) {
         this._id = id;
+        this._userId = userId;
         this._name = this.sanitizeName(name)
         this._birthDay = birthDay;
     }
@@ -19,6 +22,14 @@ export class Person {
      */
     public get id(): string {
         return this._id;
+    }
+
+    /**
+     * Getter userId
+     * @return {string}
+     */
+    public get userId() {
+        return this._userId;
     }
 
     /**
@@ -60,5 +71,9 @@ export class Person {
     }
 }
 
-const person = new Person('1', 'mar13ia jos!456é da conc;.,e=-ição', new Date('10-06-1995'))
+const person = new Person(
+    '1',
+    '1',
+    'mar13ia jos!456é da conc;.,e=-ição',
+    new Date('10-06-1995'))
 console.log(person)
